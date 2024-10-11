@@ -4,8 +4,7 @@ import java.util.List;
 
 public class EngagementRequest {
     private List<String> emails;
-    private String mailName;
-    private String profileCategory; // This is nullable
+    private String mailingName;
     private Long mailingGroupId;
 
     public List<String> getEmails() {
@@ -16,20 +15,12 @@ public class EngagementRequest {
         this.emails = emails;
     }
 
-    public String getMailName() {
-        return mailName;
+    public String getMailingName() {
+        return mailingName;
     }
 
-    public void setMailName(String mailName) {
-        this.mailName = mailName;
-    }
-
-    public String getProfileCategory() {
-        return profileCategory;
-    }
-
-    public void setProfileCategory(String profileCategory) {
-        this.profileCategory = profileCategory;
+    public void setMailingName(String mailingName) {
+        this.mailingName = mailingName;
     }
 
     public Long getMailingGroupId() {

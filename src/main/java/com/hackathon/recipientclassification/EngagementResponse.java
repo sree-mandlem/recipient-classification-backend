@@ -1,10 +1,12 @@
 package com.hackathon.recipientclassification;
 
-import java.util.Map;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.List;
 
 public class EngagementResponse {
     private String mailingCategory;
+
     private List<EmailCategoryRate> emails;
 
     public List<EmailCategoryRate> getEmails() {
@@ -25,7 +27,9 @@ public class EngagementResponse {
 
     public static class EmailCategoryRate {
         private String email;
+        @JsonFormat(shape = JsonFormat.Shape.NUMBER_FLOAT, pattern = "0.00")
         private double categoryRate;
+        @JsonFormat(shape = JsonFormat.Shape.NUMBER_FLOAT, pattern = "0.00")
         private double commonRate;
         private EngagementType engagementType; //NULLABLE
 

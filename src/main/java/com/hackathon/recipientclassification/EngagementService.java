@@ -39,7 +39,7 @@ public class EngagementService {
     }
 
     public EngagementResponse getEngagementForUsers(EngagementRequest engagementRequest) {
-        var category = categorizator.getCategory(engagementRequest.getMailName(), storage.getAllCategories());
+        var category = categorizator.getCategory(engagementRequest.getMailingName(), storage.getAllCategories());
         EngagementResponse engagementResponse = new EngagementResponse();
         engagementResponse.setMailingCategory(category);
         var results = engagementRequest.getEmails().stream().map(

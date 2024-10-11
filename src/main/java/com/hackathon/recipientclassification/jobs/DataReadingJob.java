@@ -9,14 +9,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.logging.Logger;
 
 @Component
 public class DataReadingJob {
+
+    private static final Logger LOG = Logger.getLogger(DataReadingJob.class.getName());
 
     private final Storage storage;
     private final ICategorizator categorizator;
@@ -40,6 +40,7 @@ public class DataReadingJob {
             return;
         }
 
+        LOG.info("Starting data reading");
         String filePath = "sendMailings";
 
         try {
@@ -59,13 +60,14 @@ public class DataReadingJob {
 
                 storage.add(line, category);
             }
+            LOG.info("Data reading finished, suggested categories: " + storage.getAllCategories());
             readed = true;
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public class SendMailingRecord {
+    public static class SendMailingRecord {
         private String email;
         private String mailingName;
         private long id;

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 @Component
@@ -114,7 +113,7 @@ public class Storage{
         return result;
     }
 
-    public class Rate {
+    public static class Rate {
         private double categoryRate;
         private double commonRate;
 
@@ -135,7 +134,7 @@ public class Storage{
         }
     }
 
-    public class FullRate {
+    public static class FullRate {
         private double fullRate;
 
         private List<CategoryRate> rates;
@@ -157,7 +156,7 @@ public class Storage{
         }
     }
 
-    public class CategoryRate {
+    public static class CategoryRate {
         private String category;
         private double rate;
 
@@ -183,7 +182,7 @@ public class Storage{
         }
     }
 
-    public class ProfileToCategory {
+    public static class ProfileToCategory {
         private String profile;
         private String category;
 
@@ -215,7 +214,7 @@ public class Storage{
         }
     }
 
-    public class Profile {
+    public static class Profile {
         private String recipient;
         private int sent;
         private int opened;
