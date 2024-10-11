@@ -1,5 +1,8 @@
-package com.hackathon.recipientclassification;
+package com.hackathon.recipientclassification.categorizator;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ChatGptAdapter implements IChatGptAdapter {
 
     @Override

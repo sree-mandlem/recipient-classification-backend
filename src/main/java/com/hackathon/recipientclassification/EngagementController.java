@@ -21,38 +21,7 @@ public class EngagementController {
 
     @PostMapping("/engagement")
     public EngagementResponse getEngagementData(@RequestBody EngagementRequest request) {
-        // Dummy logic: Split emails into categories based on profileCategory (if provided)
-        // In a real-world scenario, you'd fetch or calculate the rates from a database or service
-
-        ArrayList<EmailCategoryRate>  categorizedEmails = new ArrayList<>();
-
-        List<EmailCategoryRate> patronsList = new ArrayList<>();
-        List<EmailCategoryRate> casualsList = new ArrayList<>();
-
-        for (String email : request.getEmails()) {
-            EmailCategoryRate emailRate = new EmailCategoryRate();
-            emailRate.setEmail(email);
-            emailRate.setCategoryRate(0.5); // Dummy rate for illustration
-            emailRate.setCommonRate(0.5); // Dummy rate for illustration
-            emailRate.setEngagementType(request.getProfileCategory());
-
-            if ("patrons".equalsIgnoreCase(request.getProfileCategory())) {
-                patronsList.add(emailRate);
-            } else {
-                casualsList.add(emailRate);
-            }
-        }
-
-        if (!patronsList.isEmpty()) {
-            categorizedEmails.addAll(patronsList);
-        }
-        if (!casualsList.isEmpty()) {
-            categorizedEmails.addAll(casualsList);
-        }
-
-        EngagementResponse response = new EngagementResponse();
-        response.setEmails(categorizedEmails);
-        return response;
+        return engagementService.getEngagementForUsers(request);
     }
 
     @PostMapping("/{mailingGroupId}/engagement/{email}")

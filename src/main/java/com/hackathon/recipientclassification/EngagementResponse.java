@@ -27,7 +27,7 @@ public class EngagementResponse {
         private String email;
         private double categoryRate;
         private double commonRate;
-        private String engagementType; //NULLABLE
+        private EngagementType engagementType; //NULLABLE
 
         public String getEmail() {
             return email;
@@ -53,11 +53,11 @@ public class EngagementResponse {
             this.commonRate = commonRate;
         }
 
-        public String getEngagementType() {
+        public EngagementType getEngagementType() {
             return engagementType;
         }
 
-        public void setEngagementType(String engagementType) {
+        public void setEngagementType(EngagementType engagementType) {
             this.engagementType = engagementType;
         }
     }

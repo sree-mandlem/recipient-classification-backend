@@ -1,4 +1,4 @@
-package com.hackathon.recipientclassification;
+package com.hackathon.recipientclassification.categorizator;
 
 import java.util.List;
 import java.util.Map;

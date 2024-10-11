@@ -1,7 +1,10 @@
-package com.hackathon.recipientclassification;
+package com.hackathon.recipientclassification.categorizator;
+
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Component
 public class ChatGptAnswerHandler implements IParser {
 
     @Override
@@ -16,7 +19,6 @@ public class ChatGptAnswerHandler implements IParser {
             return String.format(propmtForFirstRequest, mailingThemesStr);
         }
         String propmtForFirstRequest = "I have a letter names: %s ." +
-                                       "%sv" +
                                        " I have categories: %s . " +
                                        "Split list of letters in one of these categories and add new categories if needed. Answer should have a format: " +
                                        "1. Category name: Letter name 1;;;Letter name 2;;;Letter name 3;;;;;;" +
@@ -61,7 +63,7 @@ public class ChatGptAnswerHandler implements IParser {
                         "Define which of existing categories this male belong. If needed you can create new category. " +
                         "Answer ONLY with category name.";
         String oldCategoriesStr = String.join("; ", oldCategories);
-        String result = String.format(prompt, oldCategoriesStr, mailTheme);
+        String result = String.format(prompt, oldCategoriesStr, mailTheme).trim().toLowerCase();
         return result;
     }
 }

@@ -1,9 +1,12 @@
-package com.hackathon.recipientclassification;
+package com.hackathon.recipientclassification.categorizator;
+
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+@Component
 public class Categorizator implements ICategorizator {
 
     private final IChatGptAdapter _chatGptAdapter;
@@ -26,6 +29,6 @@ public class Categorizator implements ICategorizator {
     public String getCategory(String mailSubject, List<String> oldCategories) {
         String propmpt = _parser.createChatGptRequestForCategory(mailSubject, oldCategories);
         String answer = _chatGptAdapter.sendRequest(propmpt);
-        return answer.trim();
+        return answer.trim().toLowerCase();
     }
 }

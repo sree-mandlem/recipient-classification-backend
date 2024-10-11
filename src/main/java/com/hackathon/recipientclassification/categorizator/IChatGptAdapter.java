@@ -1,4 +1,4 @@
-package com.hackathon.recipientclassification;
+package com.hackathon.recipientclassification.categorizator;
 
 public interface IChatGptAdapter {
 

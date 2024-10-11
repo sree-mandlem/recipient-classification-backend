@@ -1,7 +1,6 @@
-import com.hackathon.recipientclassification.Categorizator;
-import com.hackathon.recipientclassification.ChatGptAdapter;
-import com.hackathon.recipientclassification.ChatGptAnswerHandler;
-import org.junit.jupiter.api.Assertions;
+import com.hackathon.recipientclassification.categorizator.Categorizator;
+import com.hackathon.recipientclassification.categorizator.ChatGptAdapter;
+import com.hackathon.recipientclassification.categorizator.ChatGptAnswerHandler;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
