@@ -24,7 +24,7 @@ public class EngagementController {
         // Dummy logic: Split emails into categories based on profileCategory (if provided)
         // In a real-world scenario, you'd fetch or calculate the rates from a database or service
 
-        Map<String, List<EmailCategoryRate>> categorizedEmails = new HashMap<>();
+        ArrayList<EmailCategoryRate>  categorizedEmails = new ArrayList<>();
 
         List<EmailCategoryRate> patronsList = new ArrayList<>();
         List<EmailCategoryRate> casualsList = new ArrayList<>();
@@ -34,6 +34,7 @@ public class EngagementController {
             emailRate.setEmail(email);
             emailRate.setCategoryRate(0.5); // Dummy rate for illustration
             emailRate.setCommonRate(0.5); // Dummy rate for illustration
+            emailRate.setEngagementType(request.getProfileCategory());
 
             if ("patrons".equalsIgnoreCase(request.getProfileCategory())) {
                 patronsList.add(emailRate);
@@ -43,10 +44,10 @@ public class EngagementController {
         }
 
         if (!patronsList.isEmpty()) {
-            categorizedEmails.put("patrons", patronsList);
+            categorizedEmails.addAll(patronsList);
         }
         if (!casualsList.isEmpty()) {
-            categorizedEmails.put("casuals", casualsList);
+            categorizedEmails.addAll(casualsList);
         }
 
         EngagementResponse response = new EngagementResponse();
